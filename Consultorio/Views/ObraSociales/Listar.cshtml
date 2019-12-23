@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Consultorio.Models.ObraSociale>
+
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+    WebGrid grid = new WebGrid(Model, rowsPerPage: 20);
+}
+
+<link href="~/Content/WebGrid.css" rel="stylesheet" />
+
+<h2 class="titulo">Lista de obrasociales</h2>
+<table class="table-responsive-md">
+
+    @grid.GetHtml(
+        fillEmptyRows: false,
+        tableStyle: "webgrid-table",
+        headerStyle: "webgrid-header",
+        footerStyle: "webgrid-footer",
+        alternatingRowStyle: "webgrid-alternating-row",
+        rowStyle: "webgrid-row-style",
+
+
+        mode: WebGridPagerModes.All,
+        firstText: "<< Primera",
+        previousText: "< Anterior",
+        nextText: "Siguiente >",
+        lastText: "Última >>",
+
+
+    columns: new[]
+    {
+
+        //grid.Column("ID",header:"ID"),
+        grid.Column("Descripcion",header:"Obrasocial"),
+        grid.Column("Telefono",header:"Telefono"),
+
+        grid.Column("",
+              header: "Acciones",
+              format: @<text>
+
+
+    @Html.ActionLink("Ver Detalles", "MostrarDetalles", new { id = item.ID }) |
+    @Html.ActionLink("Modificar", "ModificarOS", new { id = item.ID }) |
+    @Html.ActionLink("Eliminar", "BorrarOS", new { id = item.ID }) 
+
+
+            </text>
+                                                       )
+                                                                               })
+</table>
+<p class="opcionesFlex">
+    @Html.ActionLink("Agregar", "AgregarOS") |
+    @Html.ActionLink("Lista de pacientes", "ListarPacientes", "ParaDoctor")
+</p>
+
+
+

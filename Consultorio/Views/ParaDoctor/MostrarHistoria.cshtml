@@ -1,0 +1,35 @@
+﻿@model Consultorio.Models.HistoriaClinica
+
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2 class="titulo">Historia Clinica</h2>
+
+
+    <hr />
+    <div class="paraMargin">
+        <div>
+            <div class="titulo">
+                @Html.DisplayNameFor(model => model.Diagnostico)
+            </div>
+
+            <div class="paraMargin">
+                @Html.DisplayFor(model => model.Diagnostico)
+            </div>
+        </div>
+        <div>
+            <div class="titulo">
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </div>
+
+            <div class="paraMargin">
+                @Html.DisplayFor(model => model.Descripcion)
+            </div> 
+        </div>
+    </div>
+    <p class="opcionesFlex">
+        @Html.ActionLink("Modificar", "ModificarHistoria", new { id = Model.ID }) |
+        @Html.ActionLink("Borrar", "BorrarHistoria", new { id = Model.ID }) |
+        @Html.ActionLink("Volver", "ListarPacientes")
+    </p>

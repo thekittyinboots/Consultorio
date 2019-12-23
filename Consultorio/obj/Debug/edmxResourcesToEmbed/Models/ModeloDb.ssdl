@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ConsultorioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="HistoriaClinica">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Diagnostico" Type="varchar" MaxLength="50" />
+    <Property Name="Descripcion" Type="text" />
+  </EntityType>
+  <EntityType Name="ObraSociales">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefono" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Pacientes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="DNI" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="FechaNac" Type="date" />
+    <Property Name="Direccion" Type="varchar" MaxLength="100" />
+    <Property Name="Telefono" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="60" />
+    <Property Name="IdObraSocial" Type="int" Nullable="false" />
+    <Property Name="Sexo" Type="char" MaxLength="10" />
+    <Property Name="IdHistoriaClinica" Type="int" />
+  </EntityType>
+  <Association Name="FK_Pacientes_HistoriaClinica">
+    <End Role="HistoriaClinica" Type="Self.HistoriaClinica" Multiplicity="0..1" />
+    <End Role="Pacientes" Type="Self.Pacientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HistoriaClinica">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pacientes">
+        <PropertyRef Name="IdHistoriaClinica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pacientes_ObraSociales">
+    <End Role="ObraSociales" Type="Self.ObraSociales" Multiplicity="1" />
+    <End Role="Pacientes" Type="Self.Pacientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObraSociales">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pacientes">
+        <PropertyRef Name="IdObraSocial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ConsultorioModelStoreContainer">
+    <EntitySet Name="HistoriaClinica" EntityType="Self.HistoriaClinica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ObraSociales" EntityType="Self.ObraSociales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pacientes" EntityType="Self.Pacientes" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Pacientes_HistoriaClinica" Association="Self.FK_Pacientes_HistoriaClinica">
+      <End Role="HistoriaClinica" EntitySet="HistoriaClinica" />
+      <End Role="Pacientes" EntitySet="Pacientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pacientes_ObraSociales" Association="Self.FK_Pacientes_ObraSociales">
+      <End Role="ObraSociales" EntitySet="ObraSociales" />
+      <End Role="Pacientes" EntitySet="Pacientes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

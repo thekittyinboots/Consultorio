@@ -1,0 +1,38 @@
+﻿@model Consultorio.Models.ObraSociale
+
+@{
+    ViewBag.Title = "MostrarDetalles";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2 class="titulo">Detalles</h2>
+
+<div>
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </div>
+
+            <div class="col-md-11">
+                @Html.DisplayFor(model => model.Descripcion)
+            </div>
+
+            <div class="col-md-1">
+                @Html.DisplayNameFor(model => model.Telefono)
+             </div>
+
+            <div class="col-md-11">
+                @Html.DisplayFor(model => model.Telefono)
+             </div>
+
+         </div>
+    </div>
+
+    <div class="opcionesFlex">
+        @Html.ActionLink("Volver", "Listar") |
+        @Html.ActionLink("Modificar", "ModificarOS", new { id = Model.ID }) |
+        @Html.ActionLink("Eliminar", "BorrarOS", new { id = Model.ID })
+    </div>
+ </div>

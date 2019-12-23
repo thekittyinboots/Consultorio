@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Consultorio</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/Estilo.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-md" id="navegacion">
+        <h3>Consultorio</h3>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item nav-link">
+                    @Html.ActionLink("Pagina principal", "Index", "Home")
+                </li>
+                <li class="nav-item nav-link">
+                    @Html.ActionLink("Contacto", "Contacto", "Home")
+                </li>
+                <li class="nav-item nav-link">
+                    @Html.ActionLink("#", "#", "#")
+                </li>
+                <li class="nav-item nav-link">
+                    @Html.ActionLink("Para doctor", "ListarPacientes", "ParaDoctor")
+                </li>
+            </ul>
+            <span class="navbar-text">
+                Navbar text with an inline element
+            </span>
+        </div>
+    </nav>
+
+
+
+
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Marina Guseva</p>
+    </footer>
+</body>
+</html>

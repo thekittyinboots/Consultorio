@@ -1,0 +1,46 @@
+﻿/*Estilos para webgrid*/
+.webgrid-table {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.0em;
+    width: 100%;
+    display: table;
+    border-collapse: separate;
+    border-style:none;
+    background-color: white;
+}
+
+    .webgrid-table td, th {
+        padding: 3px 7px 2px;
+    }
+
+.webgrid-header {
+    background-color: #333333;
+    opacity: 0.9;
+    color: #FFFFFF;
+    padding-bottom: 4px;
+    padding-top: 5px;
+    text-align: left;
+}
+
+.webgrid-footer {
+}
+
+.webgrid-row-style {
+    padding: 3px 7px 2px;
+}
+
+.webgrid-alternating-row {
+    background-color: #e6e6e6;
+    padding: 3px 7px 2px;
+}
+
+
+.webgrid-header a{
+    text-decoration: none;
+}
+.webgrid-header a:link, .webgrid-header a:visited {
+    color: #FFFFFF;
+}
+    .webgrid-header a:hover, .webgrid-header a:active {
+        color: #ffffe6;
+    }

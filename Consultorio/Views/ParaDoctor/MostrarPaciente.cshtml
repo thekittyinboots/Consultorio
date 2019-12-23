@@ -1,0 +1,115 @@
+﻿@model Consultorio.Models.Paciente
+
+@{
+    ViewBag.Apellido = Model.Apellido;
+    ViewBag.Nombre = Model.Nombre;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+
+}
+
+<h3 class="titulo">Paciente @ViewBag.Nombre @ViewBag.Apellido</h3>
+
+<div>
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+                <span class="titulo">@Html.DisplayNameFor(model => model.Nombre)</span>  
+            </div>
+
+            <div class="col-md-11">
+                @Html.DisplayFor(model => model.Nombre)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+                <span class="titulo">@Html.DisplayNameFor(model => model.Apellido)</span>
+            </div>
+
+            <div class="col-md-11">
+                @Html.DisplayFor(model => model.Apellido)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+                <span class="titulo">@Html.DisplayNameFor(model => model.DNI)</span> 
+            </div>
+
+            <div class="col-md-11">
+                @Html.DisplayFor(model => model.DNI)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                <span class="titulo">@Html.DisplayNameFor(model => model.FechaNac)</span> 
+            </div>
+
+            <div class="col-md-11">
+                @Html.DisplayFor(model => model.FechaNac)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                <span class="titulo">@Html.DisplayNameFor(model => model.ObraSociale.Descripcion)</span> 
+            </div>
+
+            <div class="col-md-11">
+                @Html.DisplayFor(model => model.ObraSociale.Descripcion)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                <span class="titulo">@Html.DisplayNameFor(model => model.Direccion)</span> 
+            </div>
+
+            <div class="col-md-11">
+                @Html.DisplayFor(model => model.Direccion)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+                <span class="titulo">@Html.DisplayNameFor(model => model.Telefono)</span> 
+            </div>
+
+            <div class="col-md-11">
+                @Html.DisplayFor(model => model.Telefono)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                <span class="titulo">@Html.DisplayNameFor(model => model.Email)</span> 
+            </div>
+
+            <div class="col-md-11">
+                @Html.DisplayFor(model => model.Email)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                <span class="titulo">@Html.DisplayNameFor(model => model.Sexo)</span> 
+            </div>
+
+            <div class="col-md-11">
+                @Html.DisplayFor(model => model.Sexo)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                <span class="titulo">@Html.DisplayNameFor(model => model.HistoriaClinica.Diagnostico)</span> 
+            </div>
+
+            <div class="col-md-11">
+                @Html.DisplayFor(model => model.HistoriaClinica.Diagnostico)
+            </div>
+        </div>
+    </div>
+    <hr />
+</div>
+<p class="opcionesFlex">
+    @Html.ActionLink("Modificar datos", "ModificarPaciente", new { id = Model.ID }) |
+    @Html.ActionLink("Ver historia", "MostrarHistoria", new { pId = Model.ID, id = Model.IdHistoriaClinica }) |
+    @Html.ActionLink("Borrar", "BorrarPaciente", new { id = Model.ID })
+</p>
