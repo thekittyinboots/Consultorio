@@ -4,6 +4,10 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Consultorio</title>
+
+    <script src="~/Scripts/jquery-3.0.0.js"></script> 
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <script src="~/Scripts/bootstrap.js"></script>
     <link href="~/Content/Estilo.css" rel="stylesheet" />
@@ -23,7 +27,7 @@
                     @Html.ActionLink("Contacto", "Contacto", "Home")
                 </li>
                 <li class="nav-item nav-link">
-                    @Html.ActionLink("#", "#", "#")
+                    @Html.ActionLink("Para Pacientes", "Index", "ParaPacientes")
                 </li>
                 <li class="nav-item nav-link">
                     @Html.ActionLink("Para doctor", "ListarPacientes", "ParaDoctor")
@@ -46,3 +50,9 @@
     </footer>
 </body>
 </html>
+
+@section scripts {
+
+   
+
+}
