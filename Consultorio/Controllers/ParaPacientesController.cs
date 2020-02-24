@@ -9,8 +9,15 @@ namespace Consultorio.Controllers
     public class ParaPacientesController : Controller
     {
         // GET: ParaPacientes
-        public ActionResult Index()
+        public ActionResult PedirTurno()
         {
+            return View();
+        }
+
+        public ActionResult PedirTurnoHorario()
+        {
+            string valor = Convert.ToString(Request.QueryString["fecha"]);
+            ViewBag.Fecha = valor;
             return View();
         }
     }
