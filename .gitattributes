@@ -2,3 +2,5 @@
 *.js linguist-vendored
 *.cshtml linguist-vendored=false
 *.cshtml linguist-vendored
+*.css linguist-vendored=false
+*.css linguist-vendored

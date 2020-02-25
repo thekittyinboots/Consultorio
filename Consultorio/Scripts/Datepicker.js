@@ -19,6 +19,14 @@ $.datepicker.regional['es'] = {
 $.datepicker.setDefaults($.datepicker.regional['es']);
 $(function () {
     $("#datepicker").datepicker({
+        beforeShowDay: function (day) {
+            var day = day.getDay();
+            if (day == 6 || day == 0 || day == 2 || day == 4) {
+                return [false, "somecssclass"]
+            } else {
+                return [true, "someothercssclass"]
+            }
+        },
         onSelect: function (fecha) {
             window.location.href = 'PedirTurnoHorario?fecha='+ fecha;
         },
